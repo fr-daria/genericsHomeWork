@@ -4,9 +4,9 @@ public class MagicBox<T> {
     protected T item;
     protected T[] items;
 
-    public MagicBox() {
+    public MagicBox( int size) {
         this.item = item;
-        T[] items = (T[]) new Object[4];
+        T[] items = (T[]) new Object[size];
     }
 
     public boolean add(T item) {
@@ -15,7 +15,6 @@ public class MagicBox<T> {
                 items[i] = item;
                 return true;
             }
-            return  false;
         }
         return false;
     }
@@ -29,7 +28,7 @@ public class MagicBox<T> {
             System.out.println("коробка не полна и осталось ещё " + " ячеек заполнить");
         }
         Random random = new Random();
-        int randomInt = random.nextInt(7); // джава подберёт случайное число от 0 до ЧИСЛО невключительно
+        int randomInt = random.nextInt(items.length); // джава подберёт случайное число от 0 до ЧИСЛО невключительно
 
         T items1 = (T) items[randomInt];
         return items1;
