@@ -11,7 +11,7 @@ public class MagicBox<T> {
 
     public boolean add(T item) {
         for (int i = 0 ; i < items.length ; i++) {
-            if (items[i] == null) {
+            if (items[i] != null) {
                 items[i] = item;
                 return true;
             }
@@ -20,18 +20,18 @@ public class MagicBox<T> {
     }
 
     public <T> T pick() {
-        try {
-            if (items.equals(null)) {
-                System.out.println("коробка не полна и осталось ещё " + " ячеек заполнить");
+        //try {
+            for (int i = 0; i < items.length; i++){
+                if (items[i] == null){
+                    throw new RuntimeException("коробка не полна и осталось ещё " + " ячеек заполнить");
+                }
             }
-        } catch (RuntimeException e) {
-            System.out.println("коробка не полна и осталось ещё " + " ячеек заполнить");
-        }
+        //} catch (RuntimeException e) {
+           // System.out.println("коробка не полна и осталось ещё " + " ячеек заполнить");}
         Random random = new Random();
         int randomInt = random.nextInt(items.length); // джава подберёт случайное число от 0 до ЧИСЛО невключительно
 
-        T items1 = (T) items[randomInt];
-        return items1;
+        return (T) items[randomInt];
     }
 }
 
