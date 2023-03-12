@@ -4,8 +4,9 @@ public class MagicBox<T> {
 
     protected T[] items;
 
+
     public MagicBox(int size) {
-        T[] items = (T[]) new Object[size];
+        items = (T[]) new Object[size];
     }
 
     public boolean add(T item) {
